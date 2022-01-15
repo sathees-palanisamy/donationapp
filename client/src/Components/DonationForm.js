@@ -26,7 +26,7 @@ function DonationForm(props) {
       setDonationAmt(0);
       setTipAmount(0);
       dispatch(actions.insertInPorgress());
-      dispatch(actions.addDonation(userId, donationAmt, tipAmount));
+      dispatch(actions.postDonationItem(userId, donationAmt, tipAmount));
     } else {
       setFormError("Invalid Input")
     }

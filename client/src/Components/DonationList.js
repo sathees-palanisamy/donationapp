@@ -7,19 +7,16 @@ import DonationPresentation from './DonationPresentation';
 function DonationList(props) {
   const errorDetail = useSelector((state) => state.donation.listStatus);
   const reduxDonationList = useSelector((state) => state.donation.donationList);
-  const [donationList] = useState([...reduxDonationList]);
-
+  
   const dispatch = useDispatch();
 
-  console.log("reduxDonationList:" + reduxDonationList);
-  console.log("donationList" + donationList);
 
   let donationListDetails;
 
   const deleteDonation = (id) => {
      dispatch(actions.deleteInPorgress());
-     dispatch(actions.deleteDonation(id));
-     dispatch(actions.listDonation());
+     dispatch(actions.deleteDonationItem(id));
+     dispatch(actions.getDonationList());
   }
 
   if (reduxDonationList.length > 0) {
@@ -38,15 +35,14 @@ function DonationList(props) {
 
   useEffect(() => {
     dispatch(actions.listInPorgress());
-    dispatch(actions.listDonation());
+    dispatch(actions.getDonationList());
   }, []);
 
   return (
-    <div className='container'>
-      <h1>Donation List</h1>
-      <Nav />
+    <div className='container' data-test="donation-list">
+      <h1 data-test="donation-list-heading">Donation List</h1>
 
-      <div>{donationListDetails}</div>
+      <div data-test="donation-details">{donationListDetails}</div>
 
       <span>{errorDetail}</span>
     </div>

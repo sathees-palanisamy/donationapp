@@ -15,7 +15,7 @@ exports.check = function (req, res, next) {
   
     axios({
       method: 'post',
-      url: 'http://localhost:5000/newdonation/',
+      url: 'http://localhost:5001/newdonation/',
       data: data,
       headers: {'Content-Type': 'application/json; charset=utf-8' }
       })
@@ -43,7 +43,7 @@ exports.list = function (req, res, next) {
   
     axios({
       method: 'get',
-      url: 'http://localhost:5000/donationlist/',
+      url: 'http://localhost:5001/donationlist/',
       headers: {'Content-Type': 'application/json; charset=utf-8' }
       })
       .then(response => {
@@ -63,7 +63,7 @@ exports.remove = function (req, res, next) {
   
     axios({
       method: 'delete',
-      url: `http://localhost:5000/deletedonation/${formData.id}`,
+      url: `http://localhost:5001/deletedonation/${formData.id}`,
       headers: {'Content-Type': 'application/json; charset=utf-8' }
       })
       .then(response => {

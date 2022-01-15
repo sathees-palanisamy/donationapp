@@ -1,4 +1,4 @@
-import reducer from "./Store/reducer";
+import reducer from "./Store/reducers";
 import  { Provider}  from 'react-redux';
 import { applyMiddleware, createStore, compose} from 'redux';
 import thunk from 'redux-thunk';

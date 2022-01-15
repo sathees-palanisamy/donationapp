@@ -9,7 +9,7 @@ import Nav from './Components/Nav';
 function App() {
 
   return (
-    <Router> 
+    <> 
       <Nav /> 
       <Switch>
         <Route path="/form">
@@ -25,7 +25,7 @@ function App() {
           <NotFound />
         </Route>
       </Switch>
-    </Router>
+    </>
   );
 }
 
