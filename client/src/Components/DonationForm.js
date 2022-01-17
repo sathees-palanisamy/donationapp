@@ -56,7 +56,9 @@ function DonationForm(props) {
             onChange={handleUserId}
             id="userId"
             value={userId}
+            name="userId"
             data-test='userid-field-input'
+            className="input-userid"
           />
         </div>
 

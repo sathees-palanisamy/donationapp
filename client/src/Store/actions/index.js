@@ -104,7 +104,12 @@ export const postDonationItem = (userId, donationAmt, tipAmount) => {
           type: 'DONATION_ADD_SUCEESS',
           data: response.data
         })
-      });
+      })
+      .catch(function (error) {
+        dispatch({
+          type: 'DONATION_ADD_FAIL',
+        })
+         });
   }
 }
 
@@ -143,7 +148,12 @@ export const getDonationList = () => {
           type: 'DONATION_LIST_SUCEESS',
           donationList: response.data
         })
-      });
+      })
+      .catch(function (error) {
+        dispatch({
+          type: 'DONATION_LIST_FAIL',
+        })
+         });
   }
 }
 
@@ -189,6 +199,11 @@ export const deleteDonationItem = (id) => {
           type: 'DONATION_DELETE_SUCEESS',
           donationList: response.data
         })
-      });
+      })
+      .catch(function (error) {
+        dispatch({
+          type: 'DONATION_DELETE_FAIL'
+        })
+         });
   }
 }

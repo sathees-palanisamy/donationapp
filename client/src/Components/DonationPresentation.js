@@ -20,7 +20,7 @@ function DonationPresentation(props){
 DonationPresentation.propTypes ={
   id: propTypes.number.isRequired,
   amount: propTypes.number.isRequired,
-  tip: propTypes.string.isRequired,
+  tip: propTypes.number.isRequired,
   userid: propTypes.string.isRequired,
   deleteDonation:propTypes.func
 

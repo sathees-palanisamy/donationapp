@@ -7,6 +7,11 @@ import React from "react";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
+
+// activate global mock to make sure getSecretWord doesn't make network call
+jest.mock("../Store/actions");
+import { postDonationItem } from "../Store/actions";
+
 const defaultProps = { };
 
 const setup = (props={}) => {
@@ -98,105 +103,29 @@ describe("State controlled userid input field",() => {
     mockUserid.mockClear();
     React.useState = () => ["",mockUserid]
     wrapper = setup({});
-    const inputComponent = findByTestAttr(wrapper,"userid-field-input");
-    const mockEvent = { target: { value: "1"}}
-    inputComponent.simulate("change",mockEvent);
 
   })
 
   test("userid input field change testing",()=> {
+
+    const inputComponent = findByTestAttr(wrapper,"userid-field-input");
+    const mockEvent = { target: { value: "1"}}
+    inputComponent.simulate("change",mockEvent);
 
     expect(mockUserid).toHaveBeenCalledWith("1");
   })
 
   test("userid input field data clear once submit form",()=> {
 
-    const submitComponent = findByTestAttr(wrapper,"form-button")
-    submitComponent.simulate('click',{ preventDefault() {}})
-    expect(mockUserid).toHaveBeenCalledWith("1");
-  })
-
-})
-
-describe("State controlled donation input field",() => {
-  let mockUserid = jest.fn();
-  let wrapper;
-
-  beforeEach(() => {
-    mockUserid.mockClear();
-    React.useState = () => ["",mockUserid]
-    wrapper = setup({});
-    const inputComponent = findByTestAttr(wrapper,"amount-field-input");
-    const mockEvent = { target: { value: 10 }}
-    inputComponent.simulate("change",mockEvent);
-
-  })
-
-  test("donation input field change testing",()=> {
-    expect(mockUserid).toHaveBeenCalledWith(10);
-  })
-
-  test("donation input field data clear once submit form",()=> {
-
-    const submitComponent = findByTestAttr(wrapper,"form-button")
-    submitComponent.simulate('click',{ preventDefault() {}})
-    expect(mockUserid).toHaveBeenCalledWith(10);
-  })
-
-})
-
-describe("State controlled tip input field",() => {
-  let mockUserid = jest.fn();
-  let wrapper;
-
-  beforeEach(() => {
-    mockUserid.mockClear();
-    React.useState = () => ["",mockUserid]
-    wrapper = setup({});
-    const inputComponent = findByTestAttr(wrapper,"tip-field-input");
-    const mockEvent = { target: { value: 10 }}
-    inputComponent.simulate("change",mockEvent);
-
-  })
-
-  test("tip input field change testing",()=> {
-    expect(mockUserid).toHaveBeenCalledWith(10);
-  })
-
-  test("tip input field data clear once submit form",()=> {
-
-    const submitComponent = findByTestAttr(wrapper,"form-button")
-    submitComponent.simulate('click',{ preventDefault() {}})
-    expect(mockUserid).toHaveBeenCalledWith(10);
-  })
-
-})
-
-describe("State controlled form error field",() => {
-  let mockUserid = jest.fn();
-  let wrapper;
-
-  beforeEach(() => {
-    mockUserid.mockClear();
-    React.useState = () => ["",mockUserid]
-    wrapper = setup({});
-  
-
-  })
-
-  test("form error details",()=> {
     const inputComponent = findByTestAttr(wrapper,"userid-field-input");
-    const mockEvent = { target: { value: ""}}
+    const mockEvent = { target: { value: "1"}}
     inputComponent.simulate("change",mockEvent);
 
     const submitComponent = findByTestAttr(wrapper,"form-button")
     submitComponent.simulate('click',{ preventDefault() {}})
 
-    const formError = findByTestAttr(wrapper,"form-error");
-    expect(formError.length).toBe(1)
-
+    expect(inputComponent.get(0).props.value).toEqual('');
 
   })
 
 })
-

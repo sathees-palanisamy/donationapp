@@ -12,7 +12,7 @@ describe("Render Home Compoenent without error", () => {
   
   test("render without error", () => {
     const wrapper = setup();
-    //  console.log(wrapper.debug());
+    // console.log(wrapper.debug());
 
     const homeComponent = findByTestAttr(wrapper, "component-home");
     expect(homeComponent.length).toBe(1);

@@ -8,28 +8,9 @@ import React from "react";
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 // activate global mock to make sure getSecretWord doesn't make network call
-// jest.mock('./actions');
+jest.mock("../Store/actions");
 
-// const defaultProps = {
-//   donation : {
-//     donationList: [
-//       {
-//       id: 1, 
-//       amount : 100,
-//       userid: "2",
-//       tip: 10,
-//      },
-//      {
-//       id: 2, 
-//       amount : 200,
-//       userid: "2",
-//       tip: 20,
-//      }
-//   ],
-//     listStatus: "",
-//       }
-
-// };
+import { getDonationList as mockgetDonationList} from "../Store/actions";
 
 const setup = (initialState={}) => {
  
@@ -63,12 +44,6 @@ test("render donation list heading",()=> {
 
 })
 
-test("render donation list",()=> {
-  const donationListComp = findByTestAttr(wrapper,"donation-details");
-  expect(donationListComp.length).toBe(1)
-
-})
-
 });
 
 describe("if there are some donations",()=> {
@@ -77,25 +52,7 @@ describe("if there are some donations",()=> {
  
   }
   beforeEach(()=>{
-    wrapper = setup({
-      donation : {
-        donationList: [
-          {
-          id: 1, 
-          amount : 100,
-          userid: "2",
-          tip: 10,
-         },
-         {
-          id: 2, 
-          amount : 200,
-          userid: "2",
-          tip: 20,
-         }
-      ],
-        listStatus: "",
-          }
-    })
+    wrapper = setup()
   })
 
 test("render withour error",()=> {
@@ -110,13 +67,25 @@ test("render donation list heading",()=> {
 
 })
 
-test("render donation list",()=> {
-  const donationListComp = findByTestAttr(wrapper,"donation-details");
-  expect(donationListComp).toBe(2)
-
-})
-
 });
 
 
+describe("useEffect testing for getDonationList", () => {
+  beforeEach(() => {
+    mockgetDonationList.mockClear();
+  });
+  test("getDonationList runs on app mount", () => {
+    const wrapper = setup();
+    expect(mockgetDonationList).toHaveBeenCalledTimes(1);
+  });
+  test("getDonationList does not run on app update", () => {
+    const wrapper = setup();
+    mockgetDonationList.mockClear();
 
+    // using setProps because wrapper.update() doesn't trigger useEffect
+    // https://github.com/enzymejs/enzyme/issues/2254
+    wrapper.setProps();
+
+    expect(mockgetDonationList).toHaveBeenCalledTimes(0);
+  });
+});

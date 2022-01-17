@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Nav(props) {
   return (
-    <nav>
+    <nav data-test="nav-head">
       <ul className="navStyle">
         <li>
          
