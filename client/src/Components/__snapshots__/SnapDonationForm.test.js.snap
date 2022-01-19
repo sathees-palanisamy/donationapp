@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders form details 1`] = `
+<div
+  className="container"
+  data-test="form-container"
+>
+  <h1
+    data-test="form-header"
+  >
+    Form Details
+  </h1>
+  <form
+    className="Form"
+    data-test="form-detail"
+    onSubmit={[Function]}
+  >
+    <div
+      className="Form--field"
+      data-test="userid-field-details"
+    >
+      <label
+        data-test="userid-field-label"
+      >
+        User ID: 
+      </label>
+      <input
+        className="input-userid"
+        data-test="userid-field-input"
+        id="userId"
+        name="userId"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="Form--field"
+      data-test="amount-field-details"
+    >
+      <label
+        data-test="amount-field-label"
+      >
+        Donation Amount: 
+      </label>
+      <input
+        data-test="amount-field-input"
+        id="amount"
+        onChange={[Function]}
+        type="number"
+        value={0}
+      />
+    </div>
+    <div
+      className="Form--field"
+      data-test="tip-field-details"
+    >
+      <label
+        data-test="tip-field-label"
+      >
+        Tip Amount: 
+      </label>
+      <input
+        data-test="tip-field-input"
+        id="amount"
+        onChange={[Function]}
+        type="number"
+        value={0}
+      />
+    </div>
+    <button
+      className="Form__button"
+      data-test="form-button"
+      type="submit"
+    >
+      Add Donation
+    </button>
+  </form>
+  <div>
+    
+  </div>
+  <div
+    data-test="form-error"
+  >
+    
+  </div>
+</div>
+`;

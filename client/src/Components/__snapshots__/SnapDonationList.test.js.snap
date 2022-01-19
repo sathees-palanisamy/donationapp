@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders list of donation 1`] = `
+<div
+  className="container"
+  data-test="donation-list"
+>
+  <h1
+    data-test="donation-list-heading"
+  >
+    Donation List
+  </h1>
+  <div
+    data-test="donation-details"
+  >
+    <div
+      className="Card"
+      data-test="donation-presentation"
+    >
+      <div
+        className="Card--body"
+        data-test="Card--body"
+      >
+        <h4
+          className="Card--body-title"
+          data-test="Card--body-title"
+        >
+          Donation Amount:
+          400
+        </h4>
+        <p
+          className="Card--body-tip"
+          data-test="Card--body-tip"
+        >
+          Tip :
+          4
+        </p>
+        <p
+          className="Card--body-userid"
+          data-test="Card--body-userid"
+        >
+          User ID :
+          1
+        </p>
+      </div>
+      <button
+        className="Card__button"
+        data-test="Card__button"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+    <div
+      className="Card"
+      data-test="donation-presentation"
+    >
+      <div
+        className="Card--body"
+        data-test="Card--body"
+      >
+        <h4
+          className="Card--body-title"
+          data-test="Card--body-title"
+        >
+          Donation Amount:
+          140
+        </h4>
+        <p
+          className="Card--body-tip"
+          data-test="Card--body-tip"
+        >
+          Tip :
+          14
+        </p>
+        <p
+          className="Card--body-userid"
+          data-test="Card--body-userid"
+        >
+          User ID :
+          1
+        </p>
+      </div>
+      <button
+        className="Card__button"
+        data-test="Card__button"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+    <div
+      className="Card"
+      data-test="donation-presentation"
+    >
+      <div
+        className="Card--body"
+        data-test="Card--body"
+      >
+        <h4
+          className="Card--body-title"
+          data-test="Card--body-title"
+        >
+          Donation Amount:
+          700
+        </h4>
+        <p
+          className="Card--body-tip"
+          data-test="Card--body-tip"
+        >
+          Tip :
+          7
+        </p>
+        <p
+          className="Card--body-userid"
+          data-test="Card--body-userid"
+        >
+          User ID :
+          1
+        </p>
+      </div>
+      <button
+        className="Card__button"
+        data-test="Card__button"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  <span>
+    success
+  </span>
+</div>
+`;
+
+exports[`renders no donation 1`] = `
+<div
+  className="container"
+  data-test="donation-list"
+>
+  <h1
+    data-test="donation-list-heading"
+  >
+    Donation List
+  </h1>
+  <div
+    data-test="donation-details"
+  />
+  <span>
+    
+  </span>
+</div>
+`;

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there are 1 items 1`] = `
+<div
+  className="Card"
+  data-test="donation-presentation"
+>
+  <div
+    className="Card--body"
+    data-test="Card--body"
+  >
+    <h4
+      className="Card--body-title"
+      data-test="Card--body-title"
+    >
+      Donation Amount:
+      100
+    </h4>
+    <p
+      className="Card--body-tip"
+      data-test="Card--body-tip"
+    >
+      Tip :
+      10
+    </p>
+    <p
+      className="Card--body-userid"
+      data-test="Card--body-userid"
+    >
+      User ID :
+      1
+    </p>
+  </div>
+  <button
+    className="Card__button"
+    data-test="Card__button"
+    onClick={[Function]}
+  >
+    Delete
+  </button>
+</div>
+`;
+
+exports[`renders correctly when there are no items 1`] = `null`;
